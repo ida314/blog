@@ -1,11 +1,13 @@
 project:
   type: website
   output-dir: docs
+  resources: 
+    - files/resume.pdf
 
 website:
-  title: "My Personal Website"
+  title: "Dylan's Technical Notes"
   site-url: https://ida314.github.io
-  description: "My Personal Website's Description"
+  description: "Dylan's personal technical blog"
   navbar:
     left:
       - href: index.md
