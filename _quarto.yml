@@ -4,7 +4,7 @@ project:
 
 website:
   title: "My Personal Website"
-  site-url: https://<your-github-username>.github.io
+  site-url: https://ida314.github.io
   description: "My Personal Website's Description"
   navbar:
     left:
