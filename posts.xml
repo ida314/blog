@@ -5,10 +5,10 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>My Personal Website</title>
+<title>Dylan&#39;s Technical Notes</title>
 <link>https://ida314.github.io/posts.html</link>
 <atom:link href="https://ida314.github.io/posts.xml" rel="self" type="application/rss+xml"/>
-<description>My Personal Website&#39;s Description</description>
+<description>Dylan&#39;s personal technical blog</description>
 <generator>quarto-1.5.57</generator>
 <lastBuildDate>Wed, 11 Sep 2024 00:00:00 GMT</lastBuildDate>
 <item>
