@@ -1,5 +1,7 @@
 ---
 title: "Dylan Dodds"
+pagetitle: "Dylan Dodds"
+title-prefix: ""
 about:
     template: solana
     image: images/yourphoto.png
@@ -10,4 +12,4 @@ about:
           href: https://linkedin.com/in/dylandodds
 ---
 
-Technical notes, project writeups, and engineering lessons from my work in CS, software systems, and security.
+My personal page. Expect technical notes, project writeups, or ramblings on various developer related things.

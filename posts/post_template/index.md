@@ -10,7 +10,7 @@ author:
     affiliation-url: https://your.workplace.website
 date: 2024-09-11
 categories: [template, any-category-you-want] # self-defined categories
-draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+draft: true # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 
 Just write more markdown here!

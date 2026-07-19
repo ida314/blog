@@ -5,7 +5,7 @@ project:
     - files/resume.pdf
 
 website:
-  title: "Dylan's Technical Notes"
+  title: "Dylan Dodds"
   site-url: https://ida314.github.io
   description: "Dylan's personal technical blog"
   navbar:
