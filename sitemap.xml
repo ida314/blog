@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ida314.github.io/LICENSE.html</loc>
+    <lastmod>2026-07-19T14:29:28.853Z</lastmod>
+  </url>
+  <url>
     <loc>https://ida314.github.io/index.html</loc>
-    <lastmod>2026-07-02T01:37:50.490Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ida314.github.io/posts/post_template/index.html</loc>
-    <lastmod>2026-07-02T01:37:50.499Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ida314.github.io/posts.html</loc>
-    <lastmod>2026-07-02T01:37:50.491Z</lastmod>
+    <lastmod>2026-07-19T14:29:28.856Z</lastmod>
   </url>
   <url>
     <loc>https://ida314.github.io/cv.html</loc>
-    <lastmod>2026-07-02T01:37:50.489Z</lastmod>
+    <lastmod>2026-07-19T14:29:28.854Z</lastmod>
   </url>
   <url>
-    <loc>https://ida314.github.io/LICENSE.html</loc>
-    <lastmod>2026-07-02T01:37:50.488Z</lastmod>
+    <loc>https://ida314.github.io/posts.html</loc>
+    <lastmod>2026-07-19T14:29:28.858Z</lastmod>
   </url>
 </urlset>
