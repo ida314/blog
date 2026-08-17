@@ -10,6 +10,132 @@
 <atom:link href="https://ida314.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description>Dylan&#39;s personal technical blog</description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Sun, 19 Jul 2026 16:50:59 GMT</lastBuildDate>
+<lastBuildDate>Sun, 16 Aug 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Stupid Inference Router</title>
+  <dc:creator>Dylan Dodds</dc:creator>
+  <link>https://ida314.github.io/posts/stupid-inference-router/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="odysseus.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Arnold Böcklin, Odysseus and Polyphemus, 1896. Public domain, via Wikimedia Commons."><img src="https://ida314.github.io/posts/stupid-inference-router/odysseus.jpg" class="img-fluid figure-img" alt="Arnold Böcklin, Odysseus and Polyphemus, 1896. Public domain, via Wikimedia Commons."></a></p>
+<figcaption>Arnold Böcklin, <em>Odysseus and Polyphemus</em>, 1896. Public domain, via <a href="https://commons.wikimedia.org/wiki/File:Arnold_B%C3%B6cklin_-_Odysseus_und_Polyphemus_(1896).jpg">Wikimedia Commons</a>.</figcaption>
+</figure>
+</div>
+<p>Code: <a href="https://github.com/ida314/stupid-inference-router">ida314/stupid-inference-router</a></p>
+<section id="how-i-made-a-scheduler-for-inference-calls-on-my-homelab" class="level1">
+<h1>How I made a scheduler for inference calls on my homelab</h1>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The problem</h2>
+<p>I am building out a lot of services on my homelab, and each one needs resources from some number of LLMs. Each service may use a different model, since each model has its own strengths and weaknesses. For example, in <a href="https://github.com/ida314/p80">p80</a>, my language learning tool, I wanted the flexibility of choosing a model that specializes in a certain language — German, which I am learning right now. However, my <a href="https://github.com/ida314/job-tracker">job-tracker</a> service needs the largest model I can fit on my DGX Spark for its nightly runs. The issue is that I would have to manually switch between models like this if I wanted both the biggest model possible and a smaller tailored model like my German translation model. If I didn’t want to manually switch between the two, then I would have to sacrifice and cut down the size of the big model to make room for the smaller ones.</p>
+<p>The naive fix is to just run a vLLM server per model, and that breaks down fast. The models collectively don’t fit. Every service ends up owning inference-server lifecycle, which isn’t its job. Whoever swaps last wins. And a low-traffic model can sit blocked behind a busy one forever. Serving inference was never the hard part here — vLLM already does that well. The hard part is deciding which model gets to be loaded right now, and that decision needs one owner.</p>
+<p>A key observation I made was that my services, of which I had a lot, all didn’t require real-time chat with an LLM. For example, <a href="">job-tracker</a> needs an LLM for job posting ranking, matching, and prefills, all of which can run async (I’m fine waiting minutes or hours for a response). This pattern seemed to be repeated across all my homelab services.</p>
+</section>
+<section id="tools-i-tried-and-considered-and-why-they-werent-enough-for-my-case" class="level2">
+<h2 class="anchored" data-anchor-id="tools-i-tried-and-considered-and-why-they-werent-enough-for-my-case">Tools I tried and considered, and why they weren’t enough for my case</h2>
+<p>I considered multiple existing tools to solve my problem, but ultimately found none that fit my specific situation: a single-user homelab setup that needs an intelligent queue.</p>
+<p>First I found llama-swap, which seemed to fit my problem nicely. llama-swap is an open-source proxy that dynamically starts, stops, and switches between local LLM inference servers based on the model a client asks for, so several models can share one GPU without all of them staying resident. That is most of what I wanted, and it can use an inference server like vLLM underneath. The problem is that llama-swap swaps in response to whichever request happens to arrive next, but my whole premise is that this work is async and can be queued — so the interesting decision is which of the <em>waiting</em> jobs should run next, not which one showed up first. Since my system already owns the queue, adding llama-swap would be a second orchestration layer that still left the scheduling to me. I kept vLLM as the inference backend and implemented model lifecycle management directly alongside the queue and scheduler.</p>
+<p>Something I considered for quite a while was NVIDIA Triton. Triton loads and unloads models too, but it goes about it differently than llama-swap. You can run it with <code>--model-control-mode explicit</code> and one process can serve generation on its OpenAI port while exposing a load/unload API on a separate port. This allowed for not needing a container to stop and start, or no process to respawn. You just had to tell it to drop one model and bring up another. That is very close to the shape I wanted.</p>
+<p>Where it fell over was structured output. Two of my services ask for JSON back using <code>response_format</code>, and Triton’s OpenAI frontend accepts that field and then drops it before it ever reaches vLLM. This issue appeared exactly twice in the whole frontend: once in the request schema that accepts it, and once in the list of things excluded on the way through. So job-tracker gets a 422 back, and my translation service gets unconstrained prose that fails every JSON parse downstream. I considered patching it myself, however that would leave me re-applying and re-verifying on every Triton upgrade, just to get back a behaviour that the vLLM already does natively.</p>
+</section>
+<section id="my-solution" class="level2">
+<h2 class="anchored" data-anchor-id="my-solution">My solution</h2>
+<p>The solution I came to was to build a scheduler, which I called SIR (stupid-inference-router). It exposes an endpoint on <code>:8000</code> and listens for LLM requests. When it hears a request for inference (in the standard OpenAI-compatible shape), it appends it to an internal queue. The scheduler then picks the best item on the queue to run, based on which model is currently loaded and what else is waiting, so it doesn’t thrash, and runs inference. SIR does not know who needs inference or why, it only schedules and sends the answer back.</p>
+<pre class="text"><code>  Service A   Service B   Service C   Service D
+      └───────────┴─────┬─────┴───────────┘
+                        ▼
+              ┌──────────────────┐
+              │       sir        │   API layer  ─ validate, enqueue, stream back
+              │      :8000       │   Scheduler  ─ which model runs next?
+              └────────┬─────────┘   Registry   ─ what models exist, what they cost
+                       ▼
+              Backend Manager (pluggable)
+                       ▼
+                  vLLM / Mock
+                       ▼
+                   DGX Spark</code></pre>
+<p>The line I cared most about drawing is the one under the scheduler. The scheduler decides <em>what</em> should run, and the backend manager decides <em>how</em> to run it, so the scheduler never touches a vLLM process directly. That separation is what allowed me try Triton and then decide not to move forward with it without touching any of the scheduling code, and it’s let me run the whole test suite runs against a mock backend.</p>
+</section>
+<section id="the-scheduling-algorithm-i-went-with-initially" class="level2">
+<h2 class="anchored" data-anchor-id="the-scheduling-algorithm-i-went-with-initially">The scheduling algorithm I went with initially</h2>
+<p>One thing I definitely wanted to avoid for the scheduling algorithm was plain FIFO. Suppose my queue is:</p>
+<pre><code>A A B A C C B A</code></pre>
+<p>A FIFO scheduler might cause:</p>
+<pre><code>load A
+load B
+load A
+load C
+load B
+load A</code></pre>
+<p>However, I want my scheduler to consider model-switch cost and produce something closer to:</p>
+<pre><code>load A → A A A A
+load B → B B
+load C → C C</code></pre>
+<p>Serving the model that is already loaded costs nothing, however serving any other model costs about ~5 minutes on my box. So the main goal of my scheduler is deciding when a waiting model has become worth 5 minutes of not generating anything</p>
+<p>So the algorithm I chose for the first version scores <em>models</em>, not requests. Every model with pending work gets a score:</p>
+<pre><code>demand(m) = age_weight * oldest_wait(m) + depth_weight * depth(m)
+score(m)  = priority(m) * demand(m) - switch_cost(m)</code></pre>
+<p><code>switch_cost</code> is zero for whatever model is already loaded, and <code>switch_cost_weight * estimated_load_seconds</code> for everyone else.</p>
+<p>One nice consequence of this is that hysteresis falls out of it for free. If a load costs 8 seconds, a single fresh request for model B can’t take the GPU away from A immediately; it has to sit there accumulating age until its demand outgrows the load it would cause.</p>
+<p>For scoring I defined 2 main rules:</p>
+<ul>
+<li><strong>Minimum residency.</strong> A freshly loaded model keeps the GPU for <code>min_residency_seconds</code> while it still has work, so alternating <code>A B A B</code> traffic buys one swap instead of one swap per request. A one issue here is what counts as “still wants the GPU”. Queue depth alone is not good enough here, since a model serving four requests a second has an empty queue most of the time, and only reading those gaps as “done” gives the GPU away mid-workload which is what we are trying to prevent. So the hold only lapses early once the model has been <em>continuously</em> idle for longer than the swap.</li>
+<li><strong>A starvation ceiling.</strong> Past <code>max_wait_seconds</code>, a waiting model becomes mandatory, outranking priority, hysteresis, and switch cost. I wanted fairness to be a core feature instead of just a weight since it’s the last line of defense for when the rest of the weights might be wrong.</li>
+</ul>
+<p>To make sure it worked, I built a test to simulate switching between 2 models, shown below:</p>
+<pre><code>switch cost only, no minimum residency
+  chat        wait p50   9.8s   p99  15.9s   served 10/10
+  translate   wait p50   9.0s   p99  15.2s   served 10/10
+  swaps 7   loads 8   loading 56.0s
+
+as shipped (min_residency 30s)
+  chat        wait p50   0.0s   p99  33.0s   served 10/10
+  translate   wait p50  11.5s   p99  41.5s   served 10/10
+  swaps 2   loads 3   loading 22.0s</code></pre>
+<p>Seven swaps was reduced to two, and the time spent loading weights instead of generating tokens dropped by more than half in the test. In the test, the p99 wait gets noticeably worse (15.9s to 33.0s for chat) but thats exactly the tradeoff I made in making SIR. I traded tail latency for GPU time intentionally, and now I can see the size of the trade instead of just assuming it.</p>
+<p>The numbers above come from the mock backend, so they tell me the policy is reasonable, not what it will do on the Spark. Each of my decisions also got logged with the score breakdown that produced it, which helps me answer “why did it just do that” from one log line. If I have no visability into what is happening SIR would quickly become hard to trust.</p>
+</section>
+<section id="issue-1-http-timeout" class="level2">
+<h2 class="anchored" data-anchor-id="issue-1-http-timeout">Issue 1: HTTP timeout</h2>
+<p>My first thought was to have all the services think they were sending to a vLLM or SGLang inference provider (using the default OpenAI request shapes) on port <code>:8000</code>, but actually send to SIR. I loved this idea, because it meant I could swap SIR out for a standard SGLang or vLLM server whenever I wanted, and nothing on the service side would need to change or break. The one issue is that with something like vLLM, the service expects an HTTP response in seconds, not minutes or hours. On a synchronous path, every service waiting for SIR to get to its request would block. Furthermore, a connection held open that long isn’t a durable thing: any proxy or idle timeout between the service and SIR can drop it. And if the service crashed or restarted, SIR would have no way of knowing whether anyone still wanted the answer, so it would happily spend GPU time generating a response into a socket nobody was reading.</p>
+<section id="my-solution-1" class="level3">
+<h3 class="anchored" data-anchor-id="my-solution-1">My solution</h3>
+<p>I had to change the contract between services and SIR. I opted for SIR to send back a receipt saying the request had been queued, which put the entire call on an async path. The services then poll an endpoint for updates, and when SIR finishes computing a request it hands the result to that endpoint for the service to collect. This fixed the HTTP problem, because the service no longer relies on a brittle long-lived connection to get its response.</p>
+<p>Polling also gave me the ability to see the demand for the inference work as well. If a job nobody polls for gets cancelled when its lease lapses. So, abandoned work would stop costing GPU time on its own. In coming to this choice, I also considered something more complex, like websockets, to cut down on polling from my services, but at my scale — a single user and around six services — that seemed unnecessary.</p>
+</section>
+</section>
+<section id="issue-2-services-are-no-longer-provider-agnostic" class="level2">
+<h2 class="anchored" data-anchor-id="issue-2-services-are-no-longer-provider-agnostic">Issue 2: services are no longer provider agnostic</h2>
+<p>One issue the polling approach above exposed is that the services are no longer LLM-provider agnostic. If I still wanted SIR to be swappable with vLLM or SGLang, each service would have to handle two different response shapes: a queued shape, which vLLM and SGLang never send, and a normal completion. Making every service branch on that was exactly what I didn’t want. The principle I was reaching for is the Adapter pattern — encapsulate what varies behind a stable interface, so the thing that changes changes in one place instead of six.</p>
+<section id="my-solution-2" class="level3">
+<h3 class="anchored" data-anchor-id="my-solution-2">My solution</h3>
+<p>I took a step back and realized my problem could be solved by putting that adapter in a package. By designing a SIR SDK, services would just depend on the SIR client package, and whether the endpoint is a normal provider or SIR gets handled inside the SDK. All a service needs to know is that it talks to this one package to get LLM inference.</p>
+<p>Two details made that clean. First, the async opt-in is an HTTP header (<code>Prefer: respond-async</code>), not a body field, so the request body a service sends is byte-for-byte what it would send vLLM. Second, a plain vLLM just ignores a header it doesn’t know and answers <code>200</code> with the completion, while SIR answers <code>202</code> with a job handle. So the SDK branches on the status code: <code>202</code> means you got a job to poll, <code>200</code> means you got the answer. Easy. The SDK is also where cancellation lives; if a caller gives up or its deadline passes, the job is cancelled on the way out.</p>
+<p>The one thing I made sure the SDK does <em>not</em> do is read or rewrite the request body. Every service’s body is forwarded exactly as written. vLLM and SGLang both keep adding sampling knobs that the other doesn’t have, and they move between releases, so anything that parses those fields has to be updated in lockstep with both projects. Putting that job in an SDK wouldn’t remove the drift, it would require me to update all my services.</p>
+</section>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p>I proved everything above against a mock backend and one real vLLM. What is still unproven in this design is that the deployment currently only runs a single model, and a single model never swaps. So my scheduling algorithm hasnt actually a decision under load yet. However, SIR is designed for it now, and all my services already talk to the SIR client package, so adding a second model requires no code change in any of them. The case where I would use smaller LLMs is my p80 language learning tool, and per-language models there are still a TODO.</p>
+<p>Some further steps could be adding something like a simple prediction algorithm, which could use historical data (which models were requested, and when) and SIR could preemptively load and unload models based on the probability of needing them at that time.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>homelab</category>
+  <category>llm</category>
+  <category>systems</category>
+  <category>scheduling</category>
+  <guid>https://ida314.github.io/posts/stupid-inference-router/</guid>
+  <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://ida314.github.io/posts/stupid-inference-router/odysseus.jpg" medium="image" type="image/jpeg"/>
+</item>
 </channel>
 </rss>

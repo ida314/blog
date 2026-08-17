@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -183,7 +183,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="homelab">homelab <span class="quarto-category-count">(1)</span></div><div class="category" data-category="llm">llm <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scheduling">scheduling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="systems">systems <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -212,7 +212,48 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-
+<div class="quarto-post image-right" data-index="0" data-categories="homelab,llm,systems,scheduling" data-listing-date-sort="1786838400000" data-listing-file-modified-sort="1787005945457" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2595">
+<div class="thumbnail">
+<p><a href="./posts/stupid-inference-router/index.html" class="no-external"></a></p><a href="./posts/stupid-inference-router/index.html" class="no-external">
+<p><img loading="lazy" src="./posts/stupid-inference-router/odysseus.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/stupid-inference-router/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/stupid-inference-router/index.html" class="no-external">Stupid Inference Router</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/stupid-inference-router/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('homelab'); return false;">
+homelab
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('llm'); return false;">
+llm
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('systems'); return false;">
+systems
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('scheduling'); return false;">
+scheduling
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/stupid-inference-router/index.html" class="no-external">Building a model-aware scheduler so one GPU can serve every service in my homelab, and the two design problems that fell out of it.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/stupid-inference-router/index.html" class="no-external">
+<div class="listing-date">
+Aug 16, 2026
+</div>
+<div class="listing-author">
+Dylan Dodds
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
