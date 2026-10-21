@@ -12,7 +12,8 @@ Source for my personal site and posts at [dylanyuma.com](https://dylanyuma.com),
 | `_drafts/` | Unpublished posts. Gitignored, so it stays on this machine, and Quarto skips `_` folders so it never renders |
 | `_headers`, `.assetsignore` | Response headers and files excluded from the Cloudflare Worker's assets |
 | `_quarto.yml` | Site config, navbar and theme |
-| `styles.css` | Custom styles |
+| `styles.css`, `theme.scss` | Custom styles; `theme.scss` swaps the theme fonts for the browser default |
+| `posts.ejs` | Template for the plain Posts listing |
 
 ## Writing a post
 
