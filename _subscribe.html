@@ -1,0 +1,14 @@
+<!-- Buttondown signup in the navbar. Quarto's navbar config only takes links, so the dropdown is moved in beside the dark-mode toggle. -->
+<div class="dropdown subscribe-dropdown" id="subscribe-dropdown">
+  <a href="#" class="nav-link quarto-navigation-tool px-1" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-bs-display="static" aria-expanded="false">Subscribe</a>
+  <div class="dropdown-menu dropdown-menu-end">
+    <form class="subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/dylandodds" method="post" target="_blank">
+      <label for="bd-email">Get new posts by email</label>
+      <input type="email" name="email" id="bd-email" class="form-control form-control-sm" placeholder="you@example.com" required>
+      <button type="submit" class="btn btn-sm btn-outline-secondary">Subscribe</button>
+    </form>
+  </div>
+</div>
+<script>
+  document.querySelector(".quarto-navbar-tools")?.prepend(document.getElementById("subscribe-dropdown"));
+</script>
