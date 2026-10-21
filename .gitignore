@@ -1,0 +1,7 @@
+/.quarto/
+docs/
+**/*.quarto_ipynb
+.DS_Store
+*.swp
+*~
+_drafts/

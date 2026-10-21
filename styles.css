@@ -1,0 +1,10 @@
+/* Compact honors table on the homepage */
+.honors-table {
+  font-size: 0.875rem;
+  max-width: 34rem;
+  margin-top: 0.25rem;
+}
+
+.honors-table td {
+  padding: 0.2rem 0.5rem 0.2rem 0;
+}

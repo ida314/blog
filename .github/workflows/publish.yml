@@ -1,0 +1,45 @@
+name: Render and Publish
+on:
+  push:
+    branches:
+      - main  # changes pushed to this branch will trigger a build.
+
+jobs:
+  build-deploy:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+      steps:
+        - name: Check out repository
+          uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+        - name: Set up Quarto
+          uses: quarto-dev/quarto-actions/setup@8a96df13519ee81fd526f2dfca5962811136661b # v2.2.0
+          with:
+            version: 1.9.38
+
+        - name: Render
+          uses: quarto-dev/quarto-actions/render@8a96df13519ee81fd526f2dfca5962811136661b # v2.2.0
+
+        # Fail the deploy rather than publish a phone number, editor swap file or .git directory.
+        - name: Check for leaks
+          run: |
+            sudo apt-get install -y -qq poppler-utils > /dev/null
+            fail=0
+            for pdf in $(find docs -name '*.pdf'); do
+              if pdftotext "$pdf" - | grep -qE '\(?[0-9]{3}\)?[ .-][0-9]{3}[ .-][0-9]{4}'; then
+                echo "::error file=$pdf::looks like it contains a phone number"; fail=1
+              fi
+            done
+            for f in $(find docs \( -name '*.swp' -o -name '*~' -o -name '.git' \)); do
+              echo "::error file=$f::should not be published"; fail=1
+            done
+            exit $fail
+
+        - name: Publish to GitHub Pages
+          uses: quarto-dev/quarto-actions/publish@8a96df13519ee81fd526f2dfca5962811136661b # v2.2.0
+          with:
+            target: gh-pages # renderred html files will be pushed here
+            render: false
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
