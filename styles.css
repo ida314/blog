@@ -43,3 +43,8 @@
   font-size: 0.875rem;
   white-space: nowrap;
 }
+
+.post-pin {
+  color: var(--bs-secondary-color);
+  font-size: 0.8em;
+}

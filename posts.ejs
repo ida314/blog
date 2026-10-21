@@ -1,5 +1,5 @@
 <ul class="post-list">
 <% for (const item of items) { %>
-<li <%= metadataAttrs(item) %>><span class="post-date"><%= item.date %></span> <a href="<%- item.path %>"><%= item.title %></a>: <%= item.description %></li>
+<li <%= metadataAttrs(item) %>><span class="post-date"><%= item.date %></span> <% if (item.pinned) { %><i class="bi bi-pin-angle-fill post-pin" role="img" aria-label="Pinned" title="Pinned"></i> <% } %><a href="<%- item.path %>"><%= item.title %></a>: <%= item.description %></li>
 <% } %>
 </ul>
