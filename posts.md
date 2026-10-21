@@ -8,3 +8,5 @@ listing:
   feed: true
 toc: false
 ---
+
+[RSS](posts.xml)
