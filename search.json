@@ -4,7 +4,7 @@
     "href": "posts.html",
     "title": "Posts",
     "section": "",
-    "text": "How I tried to trick my homelab services\n\n\n\nhomelab\n\nllm\n\nsystems\n\nscheduling\n\n\n\nHow I built a model-aware LLM scheduler so one GPU can serve every service in my homelab.\n\n\n\n\n\nAug 16, 2026\n\n\nDylan Dodds\n\n\n\n\n\n\n\n\n\n\n\n\nVacuous Truth and Buddhism\n\n\n\ndiscrete\n\nbuddhism\n\n\n\nHow we can use vacuous truth to examine hard Buddhist concepts.\n\n\n\n\n\nOct 19, 2026\n\n\nDylan Dodds\n\n\n\n\n\nNo matching items"
+    "text": "Aug 2026 How I tried to trick my homelab services: How I built a model-aware LLM scheduler so one GPU can serve every service in my homelab.\n\n\nOct 2026 Vacuous Truth and Buddhism: How we can use vacuous truth to examine hard Buddhist concepts.\n\n\nNo matching items"
   },
   {
     "objectID": "LICENSE.html",
@@ -112,10 +112,17 @@
     "text": "Next steps\nI proved everything above against a mock backend and one real vLLM. What is still unproven in this design is that the deployment currently only runs a single model, and a single model never swaps. So my scheduling algorithm hasn’t actually made a decision under load yet. However, SIR is designed for it now, and all my services already talk to the SIR client package, so adding a second model requires no code change in any of them. The case where I would use smaller LLMs is my p80 language learning tool, and per-language models there are still a TODO.\nSome further steps could be adding something like a simple prediction algorithm, which could use historical data (which models were requested, and when) and SIR could preemptively load and unload models based on the probability of needing them at that time."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
     "title": "Dylan Dodds",
-    "section": "",
-    "text": "Hello! I’m Dylan, a senior studying CS at NYU, graduating in May 2027. I’m originally from Hong Kong. Most of my work so far has been backend and infrastructure related, and I’m especially interested in systems where observability and reliability are the central problems.\nIn my free time you will often find me practicing Jiu-Jitsu, in the gym, cooking, traveling, reading, or learning a new language.\nOn this site, you can expect technical notes, project writeups, and ramblings about various developer-related topics.\nYou can reach me at dylan[at]dodds[dot]org.\n\nHonors\n\n\n\n\n\n\n\n2024\nDean’s Circle Honors Seminar — NYU Liberal Studies\n\n\n2024\nDean’s List — NYU Liberal Studies"
+    "section": "Contact",
+    "text": "Contact\nnyc\nEmail: dylan[at]dodds[dot]org\nGitHub\nLinkedIn\nX"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Dylan Dodds",
+    "section": "About",
+    "text": "About\nI am a senior studying CS at NYU, graduating in May 2027. I’m originally from Hong Kong and my engineering work so far has been backend and infrastructure related. I am particularly interested in systems where observability and reliability are core problems.\nIn my free time you will often find me practicing Jiu-Jitsu, in the gym, or learning a new language.\n\nHonors\n\n\n\n\n\n\n\n2024\nDean’s Circle Honors Seminar — NYU Liberal Studies\n\n\n2024\nDean’s List — NYU Liberal Studies\n\n\n\n\n\nProjects\n\njob-tracker: A deterministic pipeline that checks ~89 company job boards every night\nstupid-inference-router: A model-aware scheduler that shares one GPU between several LLMs\nmark: A persistent personal agent with a crash-safe journal, running on local hardware\np99: A local-first TUI that turns interview prep into timed, scored runs with spaced repetition\nspend: A receipt and statement tracker that keeps everything encrypted at rest\nuselimit: A zero-dependency TypeScript library for usage quotas in AI/API products\ndevice-tracker: Makes a Linux laptop findable through Apple’s Find My network"
   }
 ]

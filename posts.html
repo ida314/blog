@@ -46,9 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c944697470ca82589cac402d47c22abf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-da6fe76133152e43889b7023c6beb7d9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-c944697470ca82589cac402d47c22abf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cee1462fabe726147a45f556baeccdc5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-34559dc9b7cf51fc01126b88b835c85c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-cee1462fabe726147a45f556baeccdc5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -86,9 +86,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-freeze','listing-title-block-banner','listing-pinned','listing-title','listing-image','listing-lightbox','listing-description','listing-author','listing-date','listing-categories','listing-draft','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-freeze","listing-title-block-banner","listing-pinned","listing-title","listing-image","listing-lightbox","listing-description","listing-author","listing-date","listing-categories","listing-draft","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -139,7 +139,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 <link rel="alternate" type="application/rss+xml" title="Dylan Dodds" href="posts.xml" data-external="1"></head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -307,11 +307,6 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Dylan Dodds</span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -327,13 +322,6 @@ window.Quarto = {
 <span class="menu-text">Posts</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="./posts.xml"> <i class="bi bi-rss" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -345,9 +333,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YnVkZGhpc20=">buddhism <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlzY3JldGU=">discrete <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aG9tZWxhYg==">homelab <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGxt">llm <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NoZWR1bGluZw==">scheduling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3lzdGVtcw==">systems <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -375,77 +361,15 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="aG9tZWxhYiUyQ2xsbSUyQ3N5c3RlbXMlMkNzY2hlZHVsaW5n" data-listing-date-sort="1786838400000" data-listing-file-modified-sort="1792552049642" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2591">
-<div class="thumbnail"><a href="./posts/stupid-inference-router/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/stupid-inference-router/odysseus.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/stupid-inference-router/index.html" class="no-external">How I tried to trick my homelab services</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('aG9tZWxhYg=='); return false;">homelab</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bGxt'); return false;">llm</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3lzdGVtcw=='); return false;">systems</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2NoZWR1bGluZw=='); return false;">scheduling</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/stupid-inference-router/index.html" class="no-external">
-<p>How I built a model-aware LLM scheduler so one GPU can serve every service in my homelab.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/stupid-inference-router/index.html" class="no-external">
-<div class="listing-date">
-Aug 16, 2026
-</div>
-<div class="listing-author">
-Dylan Dodds
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="ZGlzY3JldGUlMkNidWRkaGlzbQ==" data-listing-date-sort="1792368000000" data-listing-file-modified-sort="1792552049643" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="491">
-<div class="thumbnail"><a href="./posts/vacuous-buddhism/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/vacuous-buddhism/vacuous-euler.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/vacuous-buddhism/index.html" class="no-external">Vacuous Truth and Buddhism</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlzY3JldGU='); return false;">discrete</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YnVkZGhpc20='); return false;">buddhism</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/vacuous-buddhism/index.html" class="no-external">
-<p>How we can use vacuous truth to examine hard Buddhist concepts.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/vacuous-buddhism/index.html" class="no-external">
-<div class="listing-date">
-Oct 19, 2026
-</div>
-<div class="listing-author">
-Dylan Dodds
-</div>
-</a>
-</div>
-</div>
-</div>
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+<ul class="post-list">
+<li data-index="0" data-categories="aG9tZWxhYiUyQ2xsbSUyQ3N5c3RlbXMlMkNzY2hlZHVsaW5n" data-listing-date-sort="1786838400000" data-listing-file-modified-sort="1792553560574" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2591">
+<span class="post-date">Aug 2026</span> <a href="./posts/stupid-inference-router/index.html">How I tried to trick my homelab services</a>: How I built a model-aware LLM scheduler so one GPU can serve every service in my homelab.
+</li>
+<li data-index="1" data-categories="ZGlzY3JldGUlMkNidWRkaGlzbQ==" data-listing-date-sort="1792368000000" data-listing-file-modified-sort="1792553560574" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="491">
+<span class="post-date">Oct 2026</span> <a href="./posts/vacuous-buddhism/index.html">Vacuous Truth and Buddhism</a>: How we can use vacuous truth to examine hard Buddhist concepts.
+</li>
+</ul>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

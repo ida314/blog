@@ -8,3 +8,38 @@
 .honors-table td {
   padding: 0.2rem 0.5rem 0.2rem 0;
 }
+
+/* Pin content to the left, in line with the navbar links, and let it fill the window: Quarto centres a capped column between 5fr gutters */
+@media (min-width: 992px) {
+  body .page-columns {
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset] 0 [page-start page-start-inset] 0 [body-start-outset] 0 [body-start] 1em [body-content-start] minmax(500px, 1fr) [body-content-end] 1.5em [body-end] 35px [body-end-outset] minmax(75px, 145px) [page-end-inset] 35px [page-end] 0 [screen-end-inset] 1.5em [screen-end];
+  }
+
+  body.fullcontent:not(.floating):not(.docked) .page-columns {
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset] 0 [page-start page-start-inset] 0 [body-start-outset] 0 [body-start] 1em [body-content-start] minmax(500px, 1fr) [body-content-end] 1em [body-end] 0 [body-end-outset] 0 [page-end-inset page-end] 0 [screen-end-inset] 1.5em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  body .page-columns {
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start page-start-inset body-start-outset] 0 [body-start] 1em [body-content-start] minmax(500px, 1fr) [body-content-end] 1.5em [body-end] 35px [body-end-outset] minmax(75px, 145px) [page-end-inset] 35px [page-end] 0 [screen-end-inset] 1.5em [screen-end];
+  }
+
+  body.fullcontent:not(.floating):not(.docked) .page-columns {
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset page-start page-start-inset body-start-outset] 0 [body-start] 1em [body-content-start] minmax(500px, 1fr) [body-content-end] 1em [body-end body-end-outset page-end-inset page-end] 0 [screen-end-inset] 1.5em [screen-end];
+  }
+}
+
+/* Posts listing: one plain line per post, date first */
+.post-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.post-date {
+  display: inline-block;
+  min-width: 5.5em;
+  color: var(--bs-secondary-color);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
