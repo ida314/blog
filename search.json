@@ -1,59 +1,10 @@
 [
   {
-    "objectID": "posts.html",
-    "href": "posts.html",
-    "title": "Posts",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Dylan Dodds",
     "section": "",
-    "text": "How I tried to trick my homelab services\n\n\n\nhomelab\n\nllm\n\nsystems\n\nscheduling\n\n\n\nHow I built a model-aware LLM scheduler so one GPU can serve every service in my homelab.\n\n\n\n\n\nAug 16, 2026\n\n\nDylan Dodds\n\n\n\n\n\n\n\n\n\n\n\n\nVacuous Truth and Buddhism\n\n\n\ndiscrete\n\nbuddhism\n\n\n\nHow we can use vacuous truth to examine hard Buddhist concepts.\n\n\n\n\n\nOct 19, 2026\n\n\nDylan Dodds\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "License",
-    "section": "",
-    "text": "Copyright © 2026 Dylan Dodds"
-  },
-  {
-    "objectID": "LICENSE.html#writing-and-images",
-    "href": "LICENSE.html#writing-and-images",
-    "title": "License",
-    "section": "Writing and images",
-    "text": "Writing and images\nThe posts, pages and images on this site are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). You may share and adapt them for any purpose, as long as you give appropriate credit, link to the license, and indicate if changes were made."
-  },
-  {
-    "objectID": "LICENSE.html#code",
-    "href": "LICENSE.html#code",
-    "title": "License",
-    "section": "Code",
-    "text": "Code\nThe site’s source code, and code snippets in posts, are licensed under the MIT License:\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
-  },
-  {
-    "objectID": "posts/vacuous-buddhism/index.html",
-    "href": "posts/vacuous-buddhism/index.html",
-    "title": "Vacuous Truth and Buddhism",
-    "section": "",
-    "text": "Euler diagram of a vacuously true implication. Image: The Proofs Project, Department of Mathematics, Virginia Tech (source)."
-  },
-  {
-    "objectID": "posts/vacuous-buddhism/index.html#vacuous-truth-in-computer-science",
-    "href": "posts/vacuous-buddhism/index.html#vacuous-truth-in-computer-science",
-    "title": "Vacuous Truth and Buddhism",
-    "section": "Vacuous Truth in Computer Science",
-    "text": "Vacuous Truth in Computer Science\nIn discrete mathematics, a universally quantified statement has the form:\n\\[\n\\forall x \\in S,\\ P(x)\n\\]\nThis means that for every element in set \\(S\\), some property \\(P\\) holds.\nBut what happens if \\(S\\) is empty?\nThe statement is still true! Since there are no elements in \\(S\\), there can’t be any counterexamples. This is called vacuous truth.\nFor example, “Every unicorn in my apartment is blue” is technically true if there are no unicorns in my apartment.\nThis idea appears in programming, too:\nall([])  # True\nPython’s all() returns True for an empty iterable because no element violates the condition.\nWhat’s interesting is that the truth comes entirely from the absence of objects that we are making claims about."
-  },
-  {
-    "objectID": "posts/vacuous-buddhism/index.html#buddhism-through-vacuous-truth",
-    "href": "posts/vacuous-buddhism/index.html#buddhism-through-vacuous-truth",
-    "title": "Vacuous Truth and Buddhism",
-    "section": "Buddhism Through Vacuous Truth",
-    "text": "Buddhism Through Vacuous Truth\n\n1. Non-Self (Anattā)\nSuppose you ask yourself, “What defines my worth? Is it my career, intelligence, or achievements?” Buddhism challenges the assumption underlying this question: that there is a permanent, independent self whose worth needs to be defined. The Buddhist concept of anattā, or non-self, teaches that what we call the self is not a fixed, unchanging entity.\nNow imagine a set \\(S\\) containing all permanent, independent selves. Under this Buddhist view, \\(S\\) is empty. Statements like “Every permanent self derives its worth from career success” become vacuously true.\nThe important takeaway isn’t that career success defines our worth. Just like the unicorns in my apartment, the statement is only true because \\(S\\) is empty, so it doesn’t actually tell us anything about career success.\n\n\n2. Impermanence (Anicca)\nAnother central Buddhist teaching is anicca, or impermanence: conditioned things are subject to change. Consider the statement, “Every achievement that guarantees permanent happiness is worth pursuing.” If no achievement can guarantee permanent happiness, the set of such achievements is empty, making the statement vacuously true.\nAgain, this doesn’t mean those achievements are worth pursuing. The opposite statement, “No achievement that guarantees permanent happiness is worth pursuing,” is vacuously true as well. When a statement and its opposite are both true, it’s a sign that the set we’re reasoning about is empty, not that we’ve learned something about what’s in it."
-  },
-  {
-    "objectID": "posts/vacuous-buddhism/index.html#conclusion",
-    "href": "posts/vacuous-buddhism/index.html#conclusion",
-    "title": "Vacuous Truth and Buddhism",
-    "section": "Conclusion",
-    "text": "Conclusion\nOf course, vacuous truth is a logical property, not a proof of Buddhist philosophy. But I find this analogy particularly useful as it frames challenging Buddhist concepts using vacuous truth, a concept that I am already familiar with."
+    "text": "Hello! I’m Dylan, a senior studying CS at NYU, graduating in May 2027. I’m originally from Hong Kong. Most of my work so far has been backend and infrastructure related, and I’m especially interested in systems where observability and reliability are the central problems.\nIn my free time you will often find me practicing Jiu-Jitsu, in the gym, cooking, traveling, reading, or learning a new language.\nOn this site, you can expect technical notes, project writeups, and ramblings about various developer-related topics.\nYou can reach me at dylan[at]dodds[dot]org.\n\nHonors\n\n\n\n\n\n\n\n2024\nDean’s Circle Honors Seminar — NYU Liberal Studies\n\n\n2024\nDean’s List — NYU Liberal Studies"
   },
   {
     "objectID": "posts/stupid-inference-router/index.html",
@@ -112,10 +63,59 @@
     "text": "Next steps\nI proved everything above against a mock backend and one real vLLM. What is still unproven in this design is that the deployment currently only runs a single model, and a single model never swaps. So my scheduling algorithm hasn’t actually made a decision under load yet. However, SIR is designed for it now, and all my services already talk to the SIR client package, so adding a second model requires no code change in any of them. The case where I would use smaller LLMs is my p80 language learning tool, and per-language models there are still a TODO.\nSome further steps could be adding something like a simple prediction algorithm, which could use historical data (which models were requested, and when) and SIR could preemptively load and unload models based on the probability of needing them at that time."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Dylan Dodds",
+    "objectID": "posts/vacuous-buddhism/index.html",
+    "href": "posts/vacuous-buddhism/index.html",
+    "title": "Vacuous Truth and Buddhism",
     "section": "",
-    "text": "Hello! I’m Dylan, a senior studying CS at NYU, graduating in May 2027. I’m originally from Hong Kong. Most of my work so far has been backend and infrastructure related, and I’m especially interested in systems where observability and reliability are the central problems.\nIn my free time you will often find me practicing Jiu-Jitsu, in the gym, cooking, traveling, reading, or learning a new language.\nOn this site, you can expect technical notes, project writeups, and ramblings about various developer-related topics.\nYou can reach me at dylan[at]dodds[dot]org.\n\nHonors\n\n\n\n\n\n\n\n2024\nDean’s Circle Honors Seminar — NYU Liberal Studies\n\n\n2024\nDean’s List — NYU Liberal Studies"
+    "text": "Euler diagram of a vacuously true implication. Image: The Proofs Project, Department of Mathematics, Virginia Tech (source)."
+  },
+  {
+    "objectID": "posts/vacuous-buddhism/index.html#vacuous-truth-in-computer-science",
+    "href": "posts/vacuous-buddhism/index.html#vacuous-truth-in-computer-science",
+    "title": "Vacuous Truth and Buddhism",
+    "section": "Vacuous Truth in Computer Science",
+    "text": "Vacuous Truth in Computer Science\nIn discrete mathematics, a universally quantified statement has the form:\n\\[\n\\forall x \\in S,\\ P(x)\n\\]\nThis means that for every element in set \\(S\\), some property \\(P\\) holds.\nBut what happens if \\(S\\) is empty?\nThe statement is still true! Since there are no elements in \\(S\\), there can’t be any counterexamples. This is called vacuous truth.\nFor example, “Every unicorn in my apartment is blue” is technically true if there are no unicorns in my apartment.\nThis idea appears in programming, too:\nall([])  # True\nPython’s all() returns True for an empty iterable because no element violates the condition.\nWhat’s interesting is that the truth comes entirely from the absence of objects that we are making claims about."
+  },
+  {
+    "objectID": "posts/vacuous-buddhism/index.html#buddhism-through-vacuous-truth",
+    "href": "posts/vacuous-buddhism/index.html#buddhism-through-vacuous-truth",
+    "title": "Vacuous Truth and Buddhism",
+    "section": "Buddhism Through Vacuous Truth",
+    "text": "Buddhism Through Vacuous Truth\n\n1. Non-Self (Anattā)\nSuppose you ask yourself, “What defines my worth? Is it my career, intelligence, or achievements?” Buddhism challenges the assumption underlying this question: that there is a permanent, independent self whose worth needs to be defined. The Buddhist concept of anattā, or non-self, teaches that what we call the self is not a fixed, unchanging entity.\nNow imagine a set \\(S\\) containing all permanent, independent selves. Under this Buddhist view, \\(S\\) is empty. Statements like “Every permanent self derives its worth from career success” become vacuously true.\nThe important takeaway isn’t that career success defines our worth. Just like the unicorns in my apartment, the statement is only true because \\(S\\) is empty, so it doesn’t actually tell us anything about career success.\n\n\n2. Impermanence (Anicca)\nAnother central Buddhist teaching is anicca, or impermanence: conditioned things are subject to change. Consider the statement, “Every achievement that guarantees permanent happiness is worth pursuing.” If no achievement can guarantee permanent happiness, the set of such achievements is empty, making the statement vacuously true.\nAgain, this doesn’t mean those achievements are worth pursuing. The opposite statement, “No achievement that guarantees permanent happiness is worth pursuing,” is vacuously true as well. When a statement and its opposite are both true, it’s a sign that the set we’re reasoning about is empty, not that we’ve learned something about what’s in it."
+  },
+  {
+    "objectID": "posts/vacuous-buddhism/index.html#conclusion",
+    "href": "posts/vacuous-buddhism/index.html#conclusion",
+    "title": "Vacuous Truth and Buddhism",
+    "section": "Conclusion",
+    "text": "Conclusion\nOf course, vacuous truth is a logical property, not a proof of Buddhist philosophy. But I find this analogy particularly useful as it frames challenging Buddhist concepts using vacuous truth, a concept that I am already familiar with."
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Posts",
+    "section": "",
+    "text": "How I tried to trick my homelab services\n\n\n\nhomelab\n\nllm\n\nsystems\n\nscheduling\n\n\n\nHow I built a model-aware LLM scheduler so one GPU can serve every service in my homelab.\n\n\n\n\n\nAug 16, 2026\n\n\nDylan Dodds\n\n\n\n\n\n\n\n\n\n\n\n\nVacuous Truth and Buddhism\n\n\n\ndiscrete\n\nbuddhism\n\n\n\nHow we can use vacuous truth to examine hard Buddhist concepts.\n\n\n\n\n\nOct 19, 2026\n\n\nDylan Dodds\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "License",
+    "section": "",
+    "text": "Copyright © 2026 Dylan Dodds"
+  },
+  {
+    "objectID": "LICENSE.html#writing-and-images",
+    "href": "LICENSE.html#writing-and-images",
+    "title": "License",
+    "section": "Writing and images",
+    "text": "Writing and images\nThe posts, pages and images on this site are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). You may share and adapt them for any purpose, as long as you give appropriate credit, link to the license, and indicate if changes were made."
+  },
+  {
+    "objectID": "LICENSE.html#code",
+    "href": "LICENSE.html#code",
+    "title": "License",
+    "section": "Code",
+    "text": "Code\nThe site’s source code, and code snippets in posts, are licensed under the MIT License:\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
   }
 ]
