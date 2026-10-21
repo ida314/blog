@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dylanyuma.com/posts.html</loc>
-    <lastmod>2026-10-21T03:38:35.092Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dylanyuma.com/LICENSE.html</loc>
-    <lastmod>2026-10-21T03:38:35.092Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dylanyuma.com/posts/vacuous-buddhism/index.html</loc>
-    <lastmod>2026-10-21T03:38:35.094Z</lastmod>
+    <loc>https://dylanyuma.com/index.html</loc>
+    <lastmod>2026-10-21T04:36:02.542Z</lastmod>
   </url>
   <url>
     <loc>https://dylanyuma.com/posts/stupid-inference-router/index.html</loc>
-    <lastmod>2026-10-21T03:38:35.094Z</lastmod>
+    <lastmod>2026-10-21T04:36:02.544Z</lastmod>
   </url>
   <url>
-    <loc>https://dylanyuma.com/index.html</loc>
-    <lastmod>2026-10-21T03:38:35.092Z</lastmod>
+    <loc>https://dylanyuma.com/posts/vacuous-buddhism/index.html</loc>
+    <lastmod>2026-10-21T04:36:02.545Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dylanyuma.com/posts.html</loc>
+    <lastmod>2026-10-21T04:36:02.542Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dylanyuma.com/LICENSE.html</loc>
+    <lastmod>2026-10-21T04:36:02.542Z</lastmod>
   </url>
 </urlset>

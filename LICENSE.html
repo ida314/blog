@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cee1462fabe726147a45f556baeccdc5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-34559dc9b7cf51fc01126b88b835c85c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cee1462fabe726147a45f556baeccdc5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-7344aac3687f4313a0ade5c2f20c4d31.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7c19b09de562dc9f374fb591ae4bbbac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-7344aac3687f4313a0ade5c2f20c4d31.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -324,6 +324,20 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 </main> <!-- /main -->
+<!-- Buttondown signup in the navbar. Quarto's navbar config only takes links, so the dropdown is moved in beside the dark-mode toggle. -->
+<div class="dropdown subscribe-dropdown" id="subscribe-dropdown">
+  <a href="#" class="nav-link quarto-navigation-tool px-1" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-bs-display="static" aria-expanded="false">Subscribe</a>
+  <div class="dropdown-menu dropdown-menu-end">
+    <form class="subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/dylandodds" method="post" target="_blank">
+      <label for="bd-email">Get new posts by email</label>
+      <input type="email" name="email" id="bd-email" class="form-control form-control-sm" placeholder="you@example.com" required="">
+      <button type="submit" class="btn btn-sm btn-outline-secondary">Subscribe</button>
+    </form>
+  </div>
+</div>
+<script>
+  document.querySelector(".quarto-navbar-tools")?.prepend(document.getElementById("subscribe-dropdown"));
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

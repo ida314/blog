@@ -48,3 +48,40 @@
   color: var(--bs-secondary-color);
   font-size: 0.8em;
 }
+
+/* Buttondown signup dropdown in the navbar, beside the dark-mode toggle */
+.subscribe-dropdown {
+  display: inline-block;
+}
+
+.subscribe-dropdown .dropdown-menu {
+  padding: 0.75rem;
+}
+
+/* On narrow screens the toggle sits at the left, so open the box from the navbar's left edge instead of off-screen */
+@media (max-width: 991.98px) {
+  .subscribe-dropdown {
+    position: static;
+  }
+
+  .subscribe-dropdown .dropdown-menu[data-bs-popper] {
+    left: 1rem;
+    right: auto;
+  }
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 16rem;
+  max-width: calc(100vw - 2rem);
+  font-size: 0.875rem;
+}
+
+/* Darkly's outline-secondary is too dim to read as clickable, so follow the dropdown's text in both themes (the navbar's data-bs-theme="dark" makes --bs-body-color light even in light mode) */
+.subscribe-form button {
+  align-self: flex-start;
+  --bs-btn-color: var(--bs-dropdown-color);
+  --bs-btn-border-color: var(--bs-dropdown-color);
+}
