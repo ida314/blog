@@ -5,7 +5,7 @@ title-prefix: ""
 toc: false
 ---
 
-![](images/yourphoto.png){height=160 fig-alt="Photo of Dylan Dodds"}
+![](images/yourphoto.png){height=200 fig-alt="Photo of Dylan Dodds"}
 
 ## Contact
 
