@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Posts",
+    "section": "",
+    "text": "How I tried to trick my homelab services\n\n\n\nhomelab\n\nllm\n\nsystems\n\nscheduling\n\n\n\nHow I built a model-aware LLM scheduler so one GPU can serve every service in my homelab.\n\n\n\n\n\nAug 16, 2026\n\n\nDylan Dodds\n\n\n\n\n\n\n\n\n\n\n\n\nVacuous Truth and Buddhism\n\n\n\ndiscrete\n\nbuddhism\n\n\n\nHow we can use vacuous truth to examine hard Buddhist concepts.\n\n\n\n\n\nOct 19, 2026\n\n\nDylan Dodds\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "License",
+    "section": "",
+    "text": "Copyright © 2026 Dylan Dodds"
+  },
+  {
+    "objectID": "LICENSE.html#writing-and-images",
+    "href": "LICENSE.html#writing-and-images",
+    "title": "License",
+    "section": "Writing and images",
+    "text": "Writing and images\nThe posts, pages and images on this site are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). You may share and adapt them for any purpose, as long as you give appropriate credit, link to the license, and indicate if changes were made."
+  },
+  {
+    "objectID": "LICENSE.html#code",
+    "href": "LICENSE.html#code",
+    "title": "License",
+    "section": "Code",
+    "text": "Code\nThe site’s source code, and code snippets in posts, are licensed under the MIT License:\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+  },
+  {
+    "objectID": "posts/vacuous-buddhism/index.html",
+    "href": "posts/vacuous-buddhism/index.html",
+    "title": "Vacuous Truth and Buddhism",
+    "section": "",
+    "text": "Euler diagram of a vacuously true implication. Image: The Proofs Project, Department of Mathematics, Virginia Tech (source)."
+  },
+  {
+    "objectID": "posts/vacuous-buddhism/index.html#vacuous-truth-in-computer-science",
+    "href": "posts/vacuous-buddhism/index.html#vacuous-truth-in-computer-science",
+    "title": "Vacuous Truth and Buddhism",
+    "section": "Vacuous Truth in Computer Science",
+    "text": "Vacuous Truth in Computer Science\nIn discrete mathematics, a universally quantified statement has the form:\n\\[\n\\forall x \\in S,\\ P(x)\n\\]\nThis means that for every element in set \\(S\\), some property \\(P\\) holds.\nBut what happens if \\(S\\) is empty?\nThe statement is still true! Since there are no elements in \\(S\\), there can’t be any counterexamples. This is called vacuous truth.\nFor example, “Every unicorn in my apartment is blue” is technically true if there are no unicorns in my apartment.\nThis idea appears in programming, too:\nall([])  # True\nPython’s all() returns True for an empty iterable because no element violates the condition.\nWhat’s interesting is that the truth comes entirely from the absence of objects that we are making claims about."
+  },
+  {
+    "objectID": "posts/vacuous-buddhism/index.html#buddhism-through-vacuous-truth",
+    "href": "posts/vacuous-buddhism/index.html#buddhism-through-vacuous-truth",
+    "title": "Vacuous Truth and Buddhism",
+    "section": "Buddhism Through Vacuous Truth",
+    "text": "Buddhism Through Vacuous Truth\n\n1. Non-Self (Anattā)\nSuppose you ask yourself, “What defines my worth? Is it my career, intelligence, or achievements?” Buddhism challenges the assumption underlying this question: that there is a permanent, independent self whose worth needs to be defined. The Buddhist concept of anattā, or non-self, teaches that what we call the self is not a fixed, unchanging entity.\nNow imagine a set \\(S\\) containing all permanent, independent selves. Under this Buddhist view, \\(S\\) is empty. Statements like “Every permanent self derives its worth from career success” become vacuously true.\nThe important takeaway isn’t that career success defines our worth. Just like the unicorns in my apartment, the statement is only true because \\(S\\) is empty, so it doesn’t actually tell us anything about career success.\n\n\n2. Impermanence (Anicca)\nAnother central Buddhist teaching is anicca, or impermanence: conditioned things are subject to change. Consider the statement, “Every achievement that guarantees permanent happiness is worth pursuing.” If no achievement can guarantee permanent happiness, the set of such achievements is empty, making the statement vacuously true.\nAgain, this doesn’t mean those achievements are worth pursuing. The opposite statement, “No achievement that guarantees permanent happiness is worth pursuing,” is vacuously true as well. When a statement and its opposite are both true, it’s a sign that the set we’re reasoning about is empty, not that we’ve learned something about what’s in it."
+  },
+  {
+    "objectID": "posts/vacuous-buddhism/index.html#conclusion",
+    "href": "posts/vacuous-buddhism/index.html#conclusion",
+    "title": "Vacuous Truth and Buddhism",
+    "section": "Conclusion",
+    "text": "Conclusion\nOf course, vacuous truth is a logical property, not a proof of Buddhist philosophy. But I find this analogy particularly useful as it frames challenging Buddhist concepts using vacuous truth, a concept that I am already familiar with."
+  },
+  {
+    "objectID": "posts/stupid-inference-router/index.html",
+    "href": "posts/stupid-inference-router/index.html",
+    "title": "How I tried to trick my homelab services",
+    "section": "",
+    "text": "Arnold Böcklin, Odysseus and Polyphemus, 1896.\nCode: ida314/stupid-inference-router"
+  },
+  {
+    "objectID": "posts/stupid-inference-router/index.html#the-problem",
+    "href": "posts/stupid-inference-router/index.html#the-problem",
+    "title": "How I tried to trick my homelab services",
+    "section": "The problem",
+    "text": "The problem\nRecently I’ve been building a lot of services on my homelab, with each one needing resources from some number of LLMs. Each service may use a different model, since each model has its own strengths and weaknesses. For example, in p80, my language learning tool, I wanted the flexibility of choosing a model that specializes in a certain language — German, which I am learning right now. However, my job-tracker service needs the largest model I can fit on my DGX Spark for its nightly runs. The issue is that I would have to manually switch between models like this if I wanted both the biggest model possible and a smaller tailored model like my German translation model. If I didn’t want to manually switch between the two, then I would have to sacrifice and cut down the size of the big model to make room for the smaller ones.\nThe naive fix is to just run a vLLM server per model, and that breaks down fast. The models collectively don’t fit. Every service ends up owning inference-server lifecycle, which isn’t its job. Whoever swaps last wins. And a low-traffic model can sit blocked behind a busy one forever. Serving inference was never the hard part here — vLLM already does that well. The hard part is deciding which model gets to be loaded right now, and that decision needs one owner.\nA key observation I made was that my services, of which I had a lot, all didn’t require real-time chat with an LLM. For example, job-tracker needs an LLM for job posting ranking, matching, and prefills, all of which can run async (I’m fine waiting minutes or hours for a response). This pattern seemed to be repeated across all my homelab services."
+  },
+  {
+    "objectID": "posts/stupid-inference-router/index.html#tools-i-tried-and-considered-and-why-they-werent-enough-for-my-case",
+    "href": "posts/stupid-inference-router/index.html#tools-i-tried-and-considered-and-why-they-werent-enough-for-my-case",
+    "title": "How I tried to trick my homelab services",
+    "section": "Tools I tried and considered, and why they weren’t enough for my case",
+    "text": "Tools I tried and considered, and why they weren’t enough for my case\nI considered multiple existing tools to solve my problem, but ultimately found none that fit my specific situation: a single-user homelab setup that needs an intelligent queue.\nFirst I found llama-swap, which seemed to fit my problem nicely. llama-swap is an open-source proxy that dynamically starts, stops, and switches between local LLM inference servers based on the model a client asks for, so several models can share one GPU without all of them staying resident. That is most of what I wanted, and it can use an inference server like vLLM underneath. The problem is that llama-swap swaps in response to whichever request happens to arrive next, but my whole premise is that this work is async and can be queued — so the interesting decision is which of the waiting jobs should run next, not which one showed up first. Since my system already owns the queue, adding llama-swap would be a second orchestration layer that still left the scheduling to me. I kept vLLM as the inference backend and implemented model lifecycle management directly alongside the queue and scheduler.\nSomething I considered for quite a while was NVIDIA Triton. Triton loads and unloads models too, but it goes about it differently than llama-swap. You can run it with --model-control-mode explicit and one process can serve generation on its OpenAI port while exposing a load/unload API on a separate port. This allowed for not needing a container to stop and start, or no process to respawn. You just had to tell it to drop one model and bring up another. That is very close to the shape I wanted.\nWhere it fell over was structured output. Two of my services ask for JSON back using response_format, and Triton’s OpenAI frontend accepts that field and then drops it before it ever reaches vLLM. This issue appeared exactly twice in the whole frontend: once in the request schema that accepts it, and once in the list of things excluded on the way through. So job-tracker gets a 422 back, and my translation service gets unconstrained prose that fails every JSON parse downstream. I considered patching it myself, however that would leave me re-applying and re-verifying on every Triton upgrade, just to get back a behaviour that the vLLM already does natively."
+  },
+  {
+    "objectID": "posts/stupid-inference-router/index.html#my-solution",
+    "href": "posts/stupid-inference-router/index.html#my-solution",
+    "title": "How I tried to trick my homelab services",
+    "section": "My solution",
+    "text": "My solution\nThe solution I came to was to build a scheduler, which I called SIR (stupid-inference-router). It exposes an endpoint on :8000 and listens for LLM requests. When it hears a request for inference (in the standard OpenAI-compatible shape), it appends it to an internal queue. The scheduler then picks the best item on the queue to run, based on which model is currently loaded and what else is waiting, so it doesn’t thrash, and runs inference. SIR does not know who needs inference or why, it only schedules and sends the answer back.\n  Service A   Service B   Service C   Service D\n      └───────────┴─────┬─────┴───────────┘\n                        ▼\n              ┌──────────────────┐\n              │       sir        │   API layer  ─ validate, enqueue, stream back\n              │      :8000       │   Scheduler  ─ which model runs next?\n              └────────┬─────────┘   Registry   ─ what models exist, what they cost\n                       ▼\n              Backend Manager (pluggable)\n                       ▼\n                  vLLM / Mock\n                       ▼\n                   DGX Spark\nThe line I cared most about drawing is the one under the scheduler. The scheduler decides what should run, and the backend manager decides how to run it, so the scheduler never touches a vLLM process directly. That separation is what allowed me try Triton and then decide not to move forward with it without touching any of the scheduling code, and it’s let me run the whole test suite runs against a mock backend."
+  },
+  {
+    "objectID": "posts/stupid-inference-router/index.html#the-scheduling-algorithm-i-went-with-initially",
+    "href": "posts/stupid-inference-router/index.html#the-scheduling-algorithm-i-went-with-initially",
+    "title": "How I tried to trick my homelab services",
+    "section": "The scheduling algorithm I went with initially",
+    "text": "The scheduling algorithm I went with initially\nOne thing I definitely wanted to avoid for the scheduling algorithm was plain FIFO. Suppose my queue is:\nA A B A C C B A\nA FIFO scheduler might cause:\nload A\nload B\nload A\nload C\nload B\nload A\nHowever, I want my scheduler to consider model-switch cost and produce something closer to:\nload A → A A A A\nload B → B B\nload C → C C\nServing the model that is already loaded costs nothing, however serving any other model costs about ~5 minutes on my box. So the main goal of my scheduler is deciding when a waiting model has become worth 5 minutes of not generating anything\nSo the algorithm I chose for the first version scores models, not requests. Every model with pending work gets a score:\ndemand(m) = age_weight * oldest_wait(m) + depth_weight * depth(m)\nscore(m)  = priority(m) * demand(m) - switch_cost(m)\nswitch_cost is zero for whatever model is already loaded, and switch_cost_weight * estimated_load_seconds for everyone else.\nOne nice consequence of this is that hysteresis falls out of it for free. If a load costs 8 seconds, a single fresh request for model B can’t take the GPU away from A immediately; it has to sit there accumulating age until its demand outgrows the load it would cause.\nFor scoring I defined 2 main rules:\n\nMinimum residency. A freshly loaded model keeps the GPU for min_residency_seconds while it still has work, so alternating A B A B traffic buys one swap instead of one swap per request. A one issue here is what counts as “still wants the GPU”. Queue depth alone is not good enough here, since a model serving four requests a second has an empty queue most of the time, and only reading those gaps as “done” gives the GPU away mid-workload which is what we are trying to prevent. So the hold only lapses early once the model has been continuously idle for longer than the swap.\nA starvation ceiling. Past max_wait_seconds, a waiting model becomes mandatory, outranking priority, hysteresis, and switch cost. I wanted fairness to be a core feature instead of just a weight since it’s the last line of defense for when the rest of the weights might be wrong.\n\nTo make sure it worked, I built a test to simulate switching between 2 models, shown below:\nswitch cost only, no minimum residency\n  chat        wait p50   9.8s   p99  15.9s   served 10/10\n  translate   wait p50   9.0s   p99  15.2s   served 10/10\n  swaps 7   loads 8   loading 56.0s\n\nas shipped (min_residency 30s)\n  chat        wait p50   0.0s   p99  33.0s   served 10/10\n  translate   wait p50  11.5s   p99  41.5s   served 10/10\n  swaps 2   loads 3   loading 22.0s\nSeven swaps was reduced to two, and the time spent loading weights instead of generating tokens dropped by more than half in the test. In the test, the p99 wait gets noticeably worse (15.9s to 33.0s for chat) but thats exactly the tradeoff I made in making SIR. I traded tail latency for GPU time intentionally, and now I can see the size of the trade instead of just assuming it.\nThe numbers above come from the mock backend, so they tell me the policy is reasonable, not what it will do on the Spark. Each of my decisions also got logged with the score breakdown that produced it, which helps me answer “why did it just do that” from one log line. If I have no visability into what is happening SIR would quickly become hard to trust."
+  },
+  {
+    "objectID": "posts/stupid-inference-router/index.html#issue-1-http-timeout",
+    "href": "posts/stupid-inference-router/index.html#issue-1-http-timeout",
+    "title": "How I tried to trick my homelab services",
+    "section": "Issue 1: HTTP timeout",
+    "text": "Issue 1: HTTP timeout\nMy first thought was to have all the services think they were sending to a vLLM or SGLang inference provider (using the default OpenAI request shapes) on port :8000, but actually send to SIR. I loved this idea, because it meant I could swap SIR out for a standard SGLang or vLLM server whenever I wanted, and nothing on the service side would need to change or break. The one issue is that with something like vLLM, the service expects an HTTP response in seconds, not minutes or hours. On a synchronous path, every service waiting for SIR to get to its request would block. Furthermore, a connection held open that long isn’t a durable thing: any proxy or idle timeout between the service and SIR can drop it. And if the service crashed or restarted, SIR would have no way of knowing whether anyone still wanted the answer, so it would happily spend GPU time generating a response into a socket nobody was reading.\n\nMy solution\nI had to change the contract between services and SIR. I opted for SIR to send back a receipt saying the request had been queued, which put the entire call on an async path. The services then poll an endpoint for updates, and when SIR finishes computing a request it hands the result to that endpoint for the service to collect. This fixed the HTTP problem, because the service no longer relies on a brittle long-lived connection to get its response.\nPolling also gave me the ability to see the demand for the inference work as well. If a job nobody polls for gets cancelled when its lease lapses. So, abandoned work would stop costing GPU time on its own. In coming to this choice, I also considered something more complex, like websockets, to cut down on polling from my services, but at my scale — a single user and around six services — that seemed unnecessary."
+  },
+  {
+    "objectID": "posts/stupid-inference-router/index.html#issue-2-services-are-no-longer-provider-agnostic",
+    "href": "posts/stupid-inference-router/index.html#issue-2-services-are-no-longer-provider-agnostic",
+    "title": "How I tried to trick my homelab services",
+    "section": "Issue 2: services are no longer provider agnostic",
+    "text": "Issue 2: services are no longer provider agnostic\nOne issue the polling approach above exposed is that the services are no longer LLM-provider agnostic. If I still wanted SIR to be swappable with vLLM or SGLang, each service would have to handle two different response shapes: a queued shape, which vLLM and SGLang never send, and a normal completion. Making every service branch on that was exactly what I didn’t want. The principle I was reaching for is the Adapter pattern — encapsulate what varies behind a stable interface, so the thing that changes changes in one place instead of six.\n\nMy solution\nI took a step back and realized my problem could be solved by putting that adapter in a package. By designing a SIR SDK, services would just depend on the SIR client package, and whether the endpoint is a normal provider or SIR gets handled inside the SDK. All a service needs to know is that it talks to this one package to get LLM inference.\nTwo details made that clean. First, the async opt-in is an HTTP header (Prefer: respond-async), not a body field, so the request body a service sends is byte-for-byte what it would send vLLM. Second, a plain vLLM just ignores a header it doesn’t know and answers 200 with the completion, while SIR answers 202 with a job handle. So the SDK branches on the status code: 202 means you got a job to poll, 200 means you got the answer. Easy. The SDK is also where cancellation lives; if a caller gives up or its deadline passes, the job is cancelled on the way out.\nThe one thing I made sure the SDK does not do is read or rewrite the request body. Every service’s body is forwarded exactly as written. vLLM and SGLang both keep adding sampling knobs that the other doesn’t have, and they move between releases, so anything that parses those fields has to be updated in lockstep with both projects. Putting that job in an SDK wouldn’t remove the drift, it would require me to update all my services."
+  },
+  {
+    "objectID": "posts/stupid-inference-router/index.html#next-steps",
+    "href": "posts/stupid-inference-router/index.html#next-steps",
+    "title": "How I tried to trick my homelab services",
+    "section": "Next steps",
+    "text": "Next steps\nI proved everything above against a mock backend and one real vLLM. What is still unproven in this design is that the deployment currently only runs a single model, and a single model never swaps. So my scheduling algorithm hasn’t actually made a decision under load yet. However, SIR is designed for it now, and all my services already talk to the SIR client package, so adding a second model requires no code change in any of them. The case where I would use smaller LLMs is my p80 language learning tool, and per-language models there are still a TODO.\nSome further steps could be adding something like a simple prediction algorithm, which could use historical data (which models were requested, and when) and SIR could preemptively load and unload models based on the probability of needing them at that time."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Dylan Dodds",
+    "section": "",
+    "text": "Hello! I’m Dylan, a senior studying CS at NYU, graduating in May 2027. I’m originally from Hong Kong. Most of my work so far has been backend and infrastructure related, and I’m especially interested in systems where observability and reliability are the central problems.\nIn my free time you will often find me practicing Jiu-Jitsu, in the gym, cooking, traveling, reading, or learning a new language.\nOn this site, you can expect technical notes, project writeups, and ramblings about various developer-related topics.\nYou can reach me at dylan[at]dodds[dot]org.\n\nHonors\n\n\n\n\n\n\n\n2024\nDean’s Circle Honors Seminar — NYU Liberal Studies\n\n\n2024\nDean’s List — NYU Liberal Studies"
+  }
+]
