@@ -16,6 +16,10 @@ website:
       - href: index.md
         text: Home
       - posts.md
+    tools:
+      - icon: rss
+        href: posts.xml
+        aria-label: RSS feed
 
 
 format:
@@ -25,4 +29,7 @@ format:
       dark: [darkly, theme.scss]
     css: styles.css
     include-after-body: _subscribe.html # Buttondown signup dropdown in the navbar
+    include-in-header:
+      # Quarto only adds the feed link to posts.html; this lets readers find it from any page
+      text: <link rel="alternate" type="application/rss+xml" title="Dylan Dodds" href="/posts.xml">
     toc: true
