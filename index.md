@@ -41,5 +41,7 @@ In my free time you will often find me practicing Jiu-Jitsu, in the gym, or lear
 
 ### Competitions
 
-<div id="cf-graph" class="cf-graph" data-handle="ida8"><a class="cf-fallback" href="https://codeforces.com/profile/ida8">Codeforces profile</a></div>
+#### Codeforces
+
+<div id="cf-graph" class="cf-graph" data-handle="ida8"><a class="cf-fallback" href="https://codeforces.com/profile/ida8" target="_blank" rel="noopener">Codeforces profile</a></div>
 <script src="cf-graph.js"></script>

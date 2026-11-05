@@ -37,6 +37,8 @@
     var a = document.createElement("a");
     a.className = "cf-header";
     a.href = profile;
+    a.target = "_blank";
+    a.rel = "noopener";
     if (info && info.avatar) {
       var img = document.createElement("img");
       img.alt = "";
@@ -76,6 +78,8 @@
 
     var link = document.createElement("a");
     link.href = profile;
+    link.target = "_blank";
+    link.rel = "noopener";
     link.className = "cf-link";
     plotBox.appendChild(link);
     var svg = el("svg", {

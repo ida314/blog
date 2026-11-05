@@ -103,10 +103,14 @@
 }
 
 .cf-header {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 8px;
-  margin-bottom: 6px;
+  /* Sit in the empty strip above the plot, level with the dropdown */
+  position: relative;
+  z-index: 1;
+  margin-bottom: -26px;
   text-decoration: none;
 }
 
