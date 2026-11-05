@@ -5,6 +5,7 @@ project:
     - CNAME
     - _headers
     - .assetsignore
+    - cf-graph.js
 
 website:
   title: "Dylan Dodds"

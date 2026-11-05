@@ -38,3 +38,8 @@ In my free time you will often find me practicing Jiu-Jitsu, in the gym, or lear
 - [spend](https://github.com/ida314/spend): A receipt and statement tracker that keeps everything encrypted at rest
 - [uselimit](https://github.com/ida314/uselimit): A zero-dependency TypeScript library for usage quotas in AI/API products
 - [device-tracker](https://github.com/ida314/device-tracker): Makes a Linux laptop findable through Apple's Find My network
+
+### Competitions
+
+<div id="cf-graph" class="cf-graph" data-handle="ida8"><a class="cf-fallback" href="https://codeforces.com/profile/ida8">Codeforces profile</a></div>
+<script src="cf-graph.js"></script>
