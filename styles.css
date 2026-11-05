@@ -85,3 +85,91 @@
   --bs-btn-color: var(--bs-dropdown-color);
   --bs-btn-border-color: var(--bs-dropdown-color);
 }
+
+/* Codeforces rating graph, drawn by cf-graph.js to match the one on codeforces.com */
+.cf-graph {
+  max-width: 850px;
+  --cf-label: #545454;
+}
+
+/* The link is only for when the graph can't load, so wait before showing it */
+.cf-fallback {
+  animation: cf-show 0s 2s both;
+}
+
+@keyframes cf-show {
+  from { visibility: hidden; }
+  to { visibility: visible; }
+}
+
+.cf-header {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  /* Sit in the empty strip above the plot, level with the dropdown */
+  position: relative;
+  z-index: 1;
+  margin-bottom: -26px;
+  text-decoration: none;
+}
+
+.cf-header img {
+  height: 40px;
+  width: auto;
+}
+
+.cf-handle {
+  color: var(--cf-rank);
+  font: bold 16px Arial, "Liberation Sans", Helvetica, sans-serif;
+}
+
+body.quarto-dark .cf-handle {
+  color: var(--cf-rank-dark);
+}
+
+.cf-plot {
+  position: relative;
+}
+
+.cf-link {
+  display: block;
+}
+
+body.quarto-dark .cf-graph {
+  --cf-label: #c8c8c8;
+}
+
+.cf-graph svg {
+  display: block;
+  max-width: 100%;
+}
+
+.cf-graph text {
+  font: 13px Arial, "Liberation Sans", Helvetica, sans-serif;
+}
+
+.cf-label {
+  fill: var(--cf-label);
+}
+
+.cf-graph .cf-grid {
+  stroke: #545454;
+  stroke-opacity: 0.22;
+  stroke-width: 1;
+}
+
+.cf-graph select {
+  position: absolute;
+  top: 1.75px;
+  right: 16.25px;
+  width: 77px;
+  height: 19px;
+  padding: 0 0 0 2px;
+  appearance: none;
+  background: #e9e9ed url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='4'%3E%3Cpath d='M.5.5l3 3 3-3' fill='none' stroke='%23222' stroke-width='1'/%3E%3C/svg%3E") no-repeat right 7.5px center;
+  border: 1px solid #8f8f9d;
+  border-radius: 4px;
+  color: #000;
+  font: 11px Arial, "Liberation Sans", Helvetica, sans-serif;
+}
