@@ -9,7 +9,7 @@ toc: false
 
 ## Contact
 
-| nyc
+| NYC
 | Email: dylan[at]dodds[dot]org
 | [GitHub](https://github.com/ida314)
 | [LinkedIn](https://linkedin.com/in/dylandodds)
@@ -17,9 +17,9 @@ toc: false
 
 ## About
 
-I am a senior studying CS at NYU, graduating in May 2027. I'm originally from Hong Kong and my engineering work so far has been backend and infrastructure related. I am particularly interested in systems where observability and reliability are core problems.
+I'm a senior studying CS at NYU, graduating in May 2027. Most of my engineering work has been backend for ML systems, and right now I'm most interested in inference infrastructure and observability for production systems.
 
-In my free time you will often find me practicing Jiu-Jitsu, in the gym, or learning a new language.
+In my free time you will often find me practicing Jiu-Jitsu, reading, or learning a new language.
 
 ### Honors
 | | |
@@ -29,15 +29,20 @@ In my free time you will often find me practicing Jiu-Jitsu, in the gym, or lear
 
 : {tbl-colwidths="[12,88]" .borderless .honors-table}
 
+### Open Source
+
+  - [OpenTelemetry Collector 
+  #15371](https://github.com/open-telemetry/opentelemetry-collector/pull/15371)
+  (merged): Added stability levels for resource attributes to `mdatagen`, the
+  Collector's code generator, including schema, validation and generated docs
+
 ### Projects
 
 - [job-tracker](https://github.com/ida314/job-tracker): A deterministic pipeline that checks ~89 company job boards every night
 - [stupid-inference-router](https://github.com/ida314/stupid-inference-router): A model-aware scheduler that shares one GPU between several LLMs
 - [mark](https://github.com/ida314/mark): A persistent personal agent with a crash-safe journal, running on local hardware
 - [p99](https://github.com/ida314/p99): A local-first TUI that turns interview prep into timed, scored runs with spaced repetition
-- [spend](https://github.com/ida314/spend): A receipt and statement tracker that keeps everything encrypted at rest
 - [uselimit](https://github.com/ida314/uselimit): A zero-dependency TypeScript library for usage quotas in AI/API products
-- [device-tracker](https://github.com/ida314/device-tracker): Makes a Linux laptop findable through Apple's Find My network
 
 ### Competitions
 
