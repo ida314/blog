@@ -4,35 +4,21 @@
     "href": "index.html#contact",
     "title": "Dylan Dodds",
     "section": "Contact",
-    "text": "Contact\nnyc\nEmail: dylan[at]dodds[dot]org\nGitHub\nLinkedIn\nX"
+    "text": "Contact\nNYC\nEmail: dylan[at]dodds[dot]org\nGitHub\nLinkedIn\nX"
   },
   {
     "objectID": "index.html#about",
     "href": "index.html#about",
     "title": "Dylan Dodds",
     "section": "About",
-    "text": "About\nI am a senior studying CS at NYU, graduating in May 2027. I’m originally from Hong Kong and my engineering work so far has been backend and infrastructure related. I am particularly interested in systems where observability and reliability are core problems.\nIn my free time you will often find me practicing Jiu-Jitsu, in the gym, or learning a new language.\n\nHonors\n\n\n\n\n\n\n\n2024\nDean’s Circle Honors Seminar — NYU Liberal Studies\n\n\n2024\nDean’s List — NYU Liberal Studies\n\n\n\n\n\nProjects\n\njob-tracker: A deterministic pipeline that checks ~89 company job boards every night\nstupid-inference-router: A model-aware scheduler that shares one GPU between several LLMs\nmark: A persistent personal agent with a crash-safe journal, running on local hardware\np99: A local-first TUI that turns interview prep into timed, scored runs with spaced repetition\nspend: A receipt and statement tracker that keeps everything encrypted at rest\nuselimit: A zero-dependency TypeScript library for usage quotas in AI/API products\ndevice-tracker: Makes a Linux laptop findable through Apple’s Find My network\n\n\n\nCompetitions\n\nCodeforces\n\nCodeforces profile"
+    "text": "About\nI’m a senior studying CS at NYU, graduating in May 2027. Most of my engineering work has been backend for ML systems, and right now I’m most interested in inference infrastructure and observability for production systems.\nIn my free time you will often find me practicing Jiu-Jitsu, reading, or learning a new language.\n\nHonors\n\n\n\n\n\n\n\n2024\nDean’s Circle Honors Seminar — NYU Liberal Studies\n\n\n2024\nDean’s List — NYU Liberal Studies\n\n\n\n\n\nOpen Source\n\nOpenTelemetry Collector #15371 (merged): Added stability levels for resource attributes to mdatagen, the Collector’s code generator, including schema, validation and generated docs\n\n\n\nProjects\n\njob-tracker: A deterministic pipeline that checks ~89 company job boards every night\nstupid-inference-router: A model-aware scheduler that shares one GPU between several LLMs\nmark: A persistent personal agent with a crash-safe journal, running on local hardware\np99: A local-first TUI that turns interview prep into timed, scored runs with spaced repetition\nuselimit: A zero-dependency TypeScript library for usage quotas in AI/API products\n\n\n\nCompetitions\n\nCodeforces\n\nCodeforces profile"
   },
   {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "License",
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Posts",
     "section": "",
-    "text": "Copyright © 2026 Dylan Dodds"
-  },
-  {
-    "objectID": "LICENSE.html#writing-and-images",
-    "href": "LICENSE.html#writing-and-images",
-    "title": "License",
-    "section": "Writing and images",
-    "text": "Writing and images\nThe posts, pages and images on this site are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). You may share and adapt them for any purpose, as long as you give appropriate credit, link to the license, and indicate if changes were made."
-  },
-  {
-    "objectID": "LICENSE.html#code",
-    "href": "LICENSE.html#code",
-    "title": "License",
-    "section": "Code",
-    "text": "Code\nThe site’s source code, and code snippets in posts, are licensed under the MIT License:\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+    "text": "RSS\n\n\n\n\n\n\n\nAug 2026  How I tried to trick my homelab services: How I built a model-aware LLM scheduler so one GPU can serve every service in my homelab.\n\n\nOct 2026 Vacuous Truth and Buddhism: How we can use vacuous truth to examine hard Buddhist concepts.\n\n\nNo matching items"
   },
   {
     "objectID": "posts/vacuous-buddhism/index.html",
@@ -119,10 +105,24 @@
     "text": "Next steps\nI proved everything above against a mock backend and one real vLLM. What is still unproven in this design is that the deployment currently only runs a single model, and a single model never swaps. So my scheduling algorithm hasn’t actually made a decision under load yet. However, SIR is designed for it now, and all my services already talk to the SIR client package, so adding a second model requires no code change in any of them. The case where I would use smaller LLMs is my p80 language learning tool, and per-language models there are still a TODO.\nSome further steps could be adding something like a simple prediction algorithm, which could use historical data (which models were requested, and when) and SIR could preemptively load and unload models based on the probability of needing them at that time."
   },
   {
-    "objectID": "posts.html",
-    "href": "posts.html",
-    "title": "Posts",
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "License",
     "section": "",
-    "text": "RSS\n\n\n\n\n\n\n\nAug 2026  How I tried to trick my homelab services: How I built a model-aware LLM scheduler so one GPU can serve every service in my homelab.\n\n\nOct 2026 Vacuous Truth and Buddhism: How we can use vacuous truth to examine hard Buddhist concepts.\n\n\nNo matching items"
+    "text": "Copyright © 2026 Dylan Dodds"
+  },
+  {
+    "objectID": "LICENSE.html#writing-and-images",
+    "href": "LICENSE.html#writing-and-images",
+    "title": "License",
+    "section": "Writing and images",
+    "text": "Writing and images\nThe posts, pages and images on this site are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). You may share and adapt them for any purpose, as long as you give appropriate credit, link to the license, and indicate if changes were made."
+  },
+  {
+    "objectID": "LICENSE.html#code",
+    "href": "LICENSE.html#code",
+    "title": "License",
+    "section": "Code",
+    "text": "Code\nThe site’s source code, and code snippets in posts, are licensed under the MIT License:\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
   }
 ]
